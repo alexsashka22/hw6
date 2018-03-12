@@ -1,10 +1,9 @@
 <?php
-    $list_dir = "tests/";
-    $list = scandir($list_dir);
+    $list = glob('tests/*.json');
 
     foreach($list as $i => $test) {
         $name = basename($test);
-        echo $name,"  ", "Number ", $i++, "</br>";
+        echo $name,"  ", "Number ", ++$i, "</br>";
     }
 
 ?>
