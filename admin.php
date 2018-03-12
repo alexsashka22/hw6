@@ -10,6 +10,9 @@
  ?>
 
 <html>
+<head>
+  <title>Home</title>
+</head>
 <body>
   <h2>Загрузите тест</h2>
   <form action="admin.php" method="POST" enctype="multipart/form-data">
