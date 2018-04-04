@@ -16,8 +16,7 @@ if(isset($_FILES['test']['tmp_name']) && file_exists($_FILES['test']['tmp_name']
 				$files = scandir('tests/');
 				$num_test = count($files) - 1;
 				if(move_uploaded_file($_FILES['test']['tmp_name'], 'tests/'. 'test' .$num_test.'.json')){
-					header ('Location:list.php',true,303);
-					exit;
+					echo "<p style='color:lightseagreen'>Файл загружен</p>";
 				}
 			}
 			else{
