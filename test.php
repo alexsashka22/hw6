@@ -10,19 +10,19 @@ if(isset($_GET['testid'])) {
   $_SESSION['test'] = $tests;
   $testing = true;
 }
-if (isset($_POST[0])) {
-    $tests = $_SESSION['test'];
-    foreach ($tests as $key => $test) {
-        $num = $key + 1;
-        if ($_POST[$key] == $test['answer']) {
-            echo "Ответ на ".$num." вопрос верен."."\n";
-        }
-        else {
-            echo "Ответ на ".$num." вопрос не верен."."\n";
-        }
-    }
-}
-?>
+// if (isset($_POST[0])) {
+//     $tests = $_SESSION['test'];
+//     foreach ($tests as $key => $test) {
+//         $num = $key + 1;
+//         if ($_POST[$key] == $test['answer']) {
+//             echo "Ответ на ".$num." вопрос верен."."\n";
+//         }
+//         else {
+//             echo "Ответ на ".$num." вопрос не верен."."\n";
+//         }
+//     }
+// }
+// ?>
 
 <!DOCTYPE html>
 <html lang="ru">
@@ -58,6 +58,20 @@ if (isset($_POST[0])) {
     <input value="Отправить" type="submit">
   <?php endif;?>
   </form>
+  <?php
+    if (isset($_POST[0])) {
+        $tests = $_SESSION['test'];
+        foreach ($tests as $key => $test) {
+            $num = $key + 1;
+            if ($_POST[$key] == $test['answer']) {
+                echo "Ответ на ".$num." вопрос верен."."\n";
+            }
+            else {
+                echo "Ответ на ".$num." вопрос не верен."."\n";
+            }
+        }
+    }
+   ?>
   <p><a href="list.php">К списку загруженных тестов</a></p>
   <p><a href="admin.php">К форме загрузки тестов</a></p>
 </body>
