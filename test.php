@@ -49,10 +49,11 @@ if(isset($_GET['testid'])) {
   <form action="test.php" method="POST">
     <fieldset>
       <legend><?php echo $test['q'];?></legend>
-      <label><input type="radio" name="<?php echo $key;?>" value="var1"><?php echo $test["var1"];?></label>
-      <label><input type="radio" name="<?php echo $key;?>" value="var2"><?php echo $test["var2"];?></label>
-      <label><input type="radio" name="<?php echo $key;?>" value="var3"><?php echo $test["var3"];?></label>
-      <label><input type="radio" name="<?php echo $key;?>" value="var4"><?php echo $test["var4"];?></label>
+      <?php foreach ($test as $key2 => $value2):?>
+      <?php	if (($key2 !== 'q') && ($key2 !== 'answer')):?>
+      <label><input type="radio" name="<?php echo $key;?>" value="<?php echo $key2;?>"><?php echo $value2;?></label>
+      <?php endif;?>
+      <?php endforeach;?>
     </fieldset>
   <?php endforeach;?>
     <input value="Отправить" type="submit">
